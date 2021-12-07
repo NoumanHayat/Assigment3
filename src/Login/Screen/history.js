@@ -6,27 +6,35 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 import {ButtonGroup, Card} from 'react-native-elements';
 const HomeScreen = props => {
+  console.log(props)
   const [DATA, setDATA] = useState([
+    {
+      id: 0,
+      OriginalPrice: '12000',
+      Discount: '4000',
+      FinalPrice: '8000',
+    },
     {
       id: 1,
       OriginalPrice: '12000',
       Discount: '4000',
-      FinalPrice: '70000',
+      FinalPrice: '80000',
     },
     {
       id: 2,
-      OriginalPrice: '12000',
+      OriginalPrice: '10000',
       Discount: '4000',
-      FinalPrice: '60000',
-    },
-    {
-      id: 3,
-      OriginalPrice: '12000',
-      Discount: '4000',
-      FinalPrice: '50000',
+      FinalPrice: '6000',
     },
   ]);
-
+  useEffect(() => {
+   setDATA([...DATA,{
+    id: DATA.length,
+    OriginalPrice: props.route.params[0],
+    Discount: props.route.params[1],
+    FinalPrice: props.route.params[2],
+  }])
+  },[]);
 
   const removeItem = id => {
     var temp = DATA.filter(item => {

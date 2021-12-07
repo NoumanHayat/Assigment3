@@ -83,7 +83,7 @@ const index = props => {
           colors={['#C0C0C0', '#5b5757', '#808080']}
           style={Styles.linearGradient}>
           <TouchableOpacity onPress={()=>{
-            navigation.push('history',[OriginalPrice,(OriginalPrice*Discount/100),( OriginalPrice-(OriginalPrice*Discount/100))])
+            navigation.push('history',[OriginalPrice,(OriginalPrice*Discount/100),parseInt( OriginalPrice-(OriginalPrice*Discount/100))])
             }}>
             <Text style={Styles.buttonText}>Save</Text>
           </TouchableOpacity>
